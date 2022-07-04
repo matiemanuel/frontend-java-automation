@@ -1,0 +1,7 @@
+baseURL: https://www.mercadolibre.com/
+implicitWait: 5
+explicitWait: 45
+pollingEvery: 1
+pageLoadTimeout: 60
+scriptTimeout: 10
+browser: chrome
