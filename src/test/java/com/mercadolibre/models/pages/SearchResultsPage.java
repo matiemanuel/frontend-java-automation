@@ -1,12 +1,12 @@
 package com.mercadolibre.models.pages;
 
 import com.mercadolibre.models.BaseMLPage;
-import com.mercadolibre.models.components.searchresultspage.SearchResultSideBar;
+import com.mercadolibre.models.components.searchresultspage.SearchResultsSideBar;
 import com.mercadolibre.models.components.searchresultspage.SearchView;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class SearchResultPage extends BaseMLPage {
+public class SearchResultsPage extends BaseMLPage {
 
     @FindBy(className = "ui-search-sidebar")
     private WebElement sideBarContainer;
@@ -14,7 +14,7 @@ public class SearchResultPage extends BaseMLPage {
     @FindBy(className = "ui-search-view-options__container")
     private WebElement searchViewContainer;
 
-    private SearchResultSideBar sideBar = new SearchResultSideBar(sideBarContainer);
+    private SearchResultsSideBar sideBar = new SearchResultsSideBar(sideBarContainer);
 
     private SearchView searchView = new SearchView(searchViewContainer);
 
@@ -22,7 +22,7 @@ public class SearchResultPage extends BaseMLPage {
         return searchView;
     }
 
-    public SearchResultSideBar getSideBar() {
+    public SearchResultsSideBar getSideBar() {
         return sideBar;
     }
 

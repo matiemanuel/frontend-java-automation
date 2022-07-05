@@ -1,10 +1,10 @@
 package com.mercadolibre.test;
 
 import com.framework.testsuite.BaseTest;
-import com.mercadolibre.models.components.searchresultspage.SearchResultSideBar;
+import com.mercadolibre.models.components.searchresultspage.SearchResultsSideBar;
 import com.mercadolibre.models.components.searchresultspage.SearchView;
 import com.mercadolibre.models.pages.HomePage;
-import com.mercadolibre.models.pages.SearchResultPage;
+import com.mercadolibre.models.pages.SearchResultsPage;
 import com.mercadolibre.models.pages.SelectCountryPage;
 import org.junit.Test;
 
@@ -20,17 +20,17 @@ public class ChallengeTest extends BaseTest {
         String SEARCH_FOR = "Autos";
         String LOCATION = "Córdoba";
 
-        SelectCountryPage page = new SelectCountryPage();
-        HomePage homePage = page.selectCountry(ARGENTINA);
+        SelectCountryPage selectCountryPage = new SelectCountryPage();
+        HomePage homePage = selectCountryPage.selectCountry(ARGENTINA);
 
         assertThat(homePage.isVisible(), is(true));
 
         homePage.getCookieBanner().acceptCookies();
-        SearchResultPage resultPage = homePage.getNavBar().searchFor(SEARCH_FOR);
+        SearchResultsPage resultsPage = homePage.getNavBar().searchFor(SEARCH_FOR);
 
-        assertThat(resultPage.isVisible(), is(true));
+        assertThat(resultsPage.isVisible(), is(true));
 
-        SearchResultSideBar sideBar = resultPage.getSideBar();
+        SearchResultsSideBar sideBar = resultsPage.getSideBar();
 
         assertThat("Current search is not the expected one", sideBar.getCurrentSearch(), is(SEARCH_FOR));
 
@@ -45,8 +45,7 @@ public class ChallengeTest extends BaseTest {
         assertThat(sideBar.filteredValuesContains(LOCATION), is(true));
 
         int searchResultsQuantity = sideBar.getSearchResultsQuantity();
-
-        SearchView searchView = resultPage.getSearchView();
+        SearchView searchView = resultsPage.getSearchView();
         searchView.sortBy(LOWER_PRICE);
 
         assertThat(searchView.getCurrentSortedValue(), is("Menor precio"));
@@ -54,5 +53,4 @@ public class ChallengeTest extends BaseTest {
         System.out.printf(">> [%d] << results for [%s] are being displayed after filtering by: Location: [%s] and cost up to $ 2.000.000 ARS",
                 searchResultsQuantity, SEARCH_FOR, LOCATION);
     }
-
 }

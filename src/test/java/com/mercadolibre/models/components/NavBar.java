@@ -1,7 +1,7 @@
 package com.mercadolibre.models.components;
 
 import com.framework.page.WebComponent;
-import com.mercadolibre.models.pages.SearchResultPage;
+import com.mercadolibre.models.pages.SearchResultsPage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -20,10 +20,10 @@ public class NavBar extends WebComponent {
         super(container);
     }
 
-    public SearchResultPage searchFor(String search) {
+    public SearchResultsPage searchFor(String search) {
         type(searchInput, search);
         isVisible(suggestionBar);
         click(searchButton);
-        return new SearchResultPage();
+        return new SearchResultsPage();
     }
 }

@@ -8,7 +8,7 @@ import java.util.List;
 
 import static java.lang.Integer.parseInt;
 
-public class SearchResultSideBar extends WebComponent {
+public class SearchResultsSideBar extends WebComponent {
 
     @FindBy(className = "ui-search-filter-dl")
     private List<WebElement> filterContainers;
@@ -22,7 +22,7 @@ public class SearchResultSideBar extends WebComponent {
     @FindBy(className = "ui-search-search-result__quantity-results")
     private WebElement searchResultsQuantity;
 
-    public SearchResultSideBar(WebElement container) {
+    public SearchResultsSideBar(WebElement container) {
         super(container);
     }
 
@@ -33,10 +33,12 @@ public class SearchResultSideBar extends WebComponent {
     }
 
     public int getFilteredValuesQuantityApplied() {
+        areVisible(filteredValues);
         return filteredValues.size();
     }
 
     public boolean filteredValuesContains(String value) {
+        areVisible(filteredValues);
         return filteredValues.stream()
                 .anyMatch(filter -> value.equalsIgnoreCase(getText(filter)));
     }
