@@ -31,21 +31,23 @@ public class SearchFilter extends WebComponent {
     }
 
     public void clickOption(int index) {
-        WebElement option = links.get(index);
-        isVisible(option);
-        click(option);
+        areVisible(links);
+        click(links.get(index));
     }
 
     public void clickOption(String filterName) {
+        areVisible(filterNames);
         click(filterNames.stream().filter(filter -> filterName.equalsIgnoreCase(getText(filter)))
                 .findFirst().get());
     }
 
     public String getFilterName(int index) {
+        areVisible(filterNames);
         return getText(filterNames.get(index));
     }
 
     public int getOptionResultsQuantity(int index) {
+        areVisible(filterResultsQuantity);
         return getInteger(getText(filterResultsQuantity.get(index)).replace("[^0-9]", ""));
     }
 }
