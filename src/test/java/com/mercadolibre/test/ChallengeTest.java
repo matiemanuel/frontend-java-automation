@@ -27,9 +27,6 @@ public class ChallengeTest extends BaseTest {
 
         homePage.getCookieBanner().acceptCookies();
         SearchResultsPage resultsPage = homePage.getNavBar().searchFor(SEARCH_FOR);
-
-        assertThat(resultsPage.isVisible(), is(true));
-
         SearchResultsSideBar sideBar = resultsPage.getSideBar();
 
         assertThat("Current search is not the expected one", sideBar.getCurrentSearch(), is(SEARCH_FOR));

@@ -16,6 +16,9 @@ know the number of results available.
 
 How to execute:
 
+- Clone the repository into your computer
+- Have the browser selected already installed in your computer
+
 With command prompt:
 
 Precondition:
@@ -24,8 +27,6 @@ Precondition:
 - Both of them should be referenced in your environment variables.
 
 ** Used as reference: https://maven.apache.org/install.html **
-
-- Clone the repository into your computer
 
 Execution:
 - With a command prompt, move to the directory that contains the project and execute:
@@ -42,3 +43,6 @@ With IntelliJ idea:
 - Search for test in src/test/java/com/mercadolibre/test/ChallengeTest and run it
 
 You should be able to see the result in the terminal
+
+Notes:
+You can select which browser use by modifying config.yml file. Browser options currently available: chrome, firefox and edge (remember to re-install with 'mvn clean install' in case you change this)
